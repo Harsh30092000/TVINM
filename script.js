@@ -26,11 +26,10 @@ let loadFile = function (event) {
 };
 
 document.addEventListener("DOMContentLoaded", sessionStorage.clear());
+document.addEventListener("DOMContentLoaded", localStorage.clear());
 
 formData.addEventListener("submit", function (e) {
   e.preventDefault();
-
-  //   document.querySelector(".gpdf").classList.add("d-block");
   const formArr = [];
   for (let i = 0; i < e.target.length - 1; i++) {
     formArr.push(e.target[i].value);
@@ -49,7 +48,6 @@ function sessionStart(arr) {
 }
 
 function GeneratePdf() {
-  addtodb();
   let myForm = JSON.parse(localStorage.myForm);
   const template = `
         
@@ -62,7 +60,7 @@ function GeneratePdf() {
                         </div>
                         <div class="header-title">
                             <p class="page-header mb-2 fw-bold">Thambatty <br/> Vivekanandar Illaignar narpani mandram</p>
-                            <p>Nundhala Post, The Nilgiris 643003</p>
+                            <p>Nunthala Post, The Nilgiris 643003</p>
 
                         </div>
                         <div class="logo_nyk">
@@ -204,7 +202,17 @@ function GeneratePdf() {
                     
                     `;
 
-  html2pdf(template, { html2canvas: { scale: 4 } });
+  //   html2pdf(template, { html2canvas: { scale: 4 } });
+  //   var element = document.getElementById("element-to-print");
+
+  html2pdf(template, {
+    margin: 0,
+    filename: `${myForm[1]}.pdf`,
+    image: { type: "jpeg", quality: 1 },
+    html2canvas: { scale: 4, logging: true, dpi: 300, letterRendering: true },
+    jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+  });
+
   sessionStorage.clear();
   setTimeout(function () {
     window.location.reload();

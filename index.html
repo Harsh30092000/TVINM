@@ -1,258 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
     <title>TVINM Membership Form</title>
     <!-- CSS only -->
-    <link href="bootstrap.min.css" rel="stylesheet" />
+    <link href="bootstrap.min.css" rel="stylesheet">
 
     <!-- Html2Pdf -->
-    <script src="html2pdf.bundle.min.js"></script>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="style2.css" />
-  </head>
+    <script src="html2pdf.bundle.min.js">
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
+</head>
 
-  <body class="bg-color">
+<body class="bg-color">
+
     <section class="section">
-      <div class="container form-container pad">
-        <form id="form-doc" action="" class="form" enctype="text/plain">
-          <h4 class="mb-3 mt-4 text-center text-capitalize mandram_name">
-            <b>Thambatty Vivekanandar Illaignar narpani mandram</b>
-          </h4>
-          <h3 class="mb-5 text-center lead">Membership Details Form</h3>
-          <div class="row text-center">
-            <div class="col-12 mb-5 mx-auto">
-              <label for="formFile" class="imgLabel position-relative">
-                <div class="innerImg">
-                  <img
-                    id="liveimg"
-                    class="selectImg"
-                    src="profile-default.png"
-                    alt=""
-                  />
+        <div class="container form-container pad">
+            <form id="form-doc" action="" class="form" enctype="text/plain">
+                <h4 class="mb-3 mt-4 text-center text-capitalize mandram_name"> <b>Thambatty Vivekanandar Illaignar
+                        narpani
+                        mandram</b></h4>
+                <h3 class="mb-5 text-center lead"> Membership Details Form</h3>
+                <div class="row text-center">
+                    <div class="col-12 mb-5 mx-auto ">
+                        <label for="formFile" class="imgLabel position-relative">
+                            <div class="innerImg">
+                                <img id="liveimg" class="selectImg" src="profile-default.png" alt="">
+                            </div>
+                        </label>
+                        <input class="form-control d-none" accept="image/*" name="image" onchange="loadFile(event)"
+                            type="file" id="formFile">
+                    </div>
+                    <div class="col-12  mx-auto">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="name" placeholder="Name">
+                            <label for="name">Name</label>
+                        </div>
+                    </div>
+                    <div class="col-12  mx-auto">
+                        <div class="form-floating">
+                            <input type="date" class="form-control" id="dob" placeholder="DOB">
+                            <label for="dob">DOB</label>
+                        </div>
+                    </div>
+                    <div class="col-12  mx-auto">
+                        <div class="form-floating">
+                            <select class="form-select" id="floatingSelectGrid"
+                                aria-label="Floating label select example">
+                                <option selected value="O+">O+</option>
+                                <option value="A+">A+</option>
+                                <option value="A1+">A1+</option>
+                                <option value="A1-">A1-</option>
+                                <option value="B+">B+</option>
+                                <option value="AB+">AB+</option>
+                                <option value="A1B+">A1B+</option>
+                            </select>
+                            <label for="floatingSelectGrid">Select Blood Group</label>
+                        </div>
+                    </div>
+                    <div class="col-12  mx-auto">
+                        <div class="form-floating">
+                            <select class="form-select" id="floatingSelectGrid"
+                                aria-label="Floating label select example">
+                                <option selected value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                            <label for="floatingSelectGrid">Select Gender</label>
+                        </div>
+                    </div>
+                    <div class="col-12  mx-auto">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="father-name" placeholder="Father's name">
+                            <label for="father-name">Father's name</label>
+                        </div>
+                    </div>
+                    <div class="col-12  mx-auto">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="mother-name" placeholder="Mother's name">
+                            <label for="mother-name">Mother's name</label>
+                        </div>
+                    </div>
+                    <div class="col-12  mx-auto">
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                                style="height: 100px" maxlength="100"></textarea>
+                            <label for="floatingTextarea2">Address</label>
+                        </div>
+                    </div>
+                    <div class="col-12  mx-auto">
+                        <div class="form-floating">
+                            <input type="number" class="form-control" id="phone" placeholder="Contact Number">
+                            <label for="phone">Contact Number</label>
+                        </div>
+                    </div>
+                    <div class="col-12  mx-auto">
+                        <div class="form-floating">
+                            <input type="number" class="form-control" id="aadhar" placeholder="Aadhar Number">
+                            <label for="aadhar">Aadhar Number</label>
+                        </div>
+                    </div>
+                    <div class="col-12  mx-auto">
+                        <div class="form-floating">
+                            <input type="email" class="form-control" id="email" placeholder="Email">
+                            <label for="email">Email ID</label>
+                        </div>
+                    </div>
+
+                    <div class="col-12 mb-4 mx-auto">
+                        <div class="form-floating">
+                            <select class="form-select" id="floatingSelectGrid"
+                                aria-label="Floating label select example">
+                                <option value="Member" selected>Member</option>
+                                <option value="President">President</option>
+                                <option value="Vice-President">Vice-President</option>
+                                <option value="Vice-President">Cashier</option>
+                                <option value="Vice-President">Secretary</option>
+                                <option value="Vice-President">Vice-Secretary</option>
+                            </select>
+                            <label for="floatingSelectGrid">Select Position</label>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 mt-auto d-grid mb-4">
+                        <button class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop">Submit</button>
+                    </div>
                 </div>
-              </label>
-              <input
-                class="form-control d-none"
-                accept="image/*"
-                name="image"
-                onchange="loadFile(event)"
-                type="file"
-                id="formFile"
-              />
-            </div>
-            <div class="col-12 mx-auto">
-              <div class="form-floating">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="name"
-                  placeholder="Name"
-                />
-                <label for="name">Name</label>
-              </div>
-            </div>
-            <div class="col-12 mx-auto">
-              <div class="form-floating">
-                <input
-                  type="date"
-                  class="form-control"
-                  id="dob"
-                  placeholder="DOB"
-                />
-                <label for="dob">DOB</label>
-              </div>
-            </div>
-            <div class="col-12 mx-auto">
-              <div class="form-floating">
-                <select
-                  class="form-select"
-                  id="bloodg"
-                  aria-label="Floating label select example"
-                >
-                  <option selected value="O+">O+</option>
-                  <option value="A+">A+</option>
-                  <option value="B+">B+</option>
-                  <option value="AB-">AB-</option>
-                </select>
-                <label for="floatingSelectGrid">Select Blood Group</label>
-              </div>
-            </div>
-            <div class="col-12 mx-auto">
-              <div class="form-floating">
-                <select
-                  class="form-select"
-                  id="gender"
-                  aria-label="Floating label select example"
-                >
-                  <option selected value="male">Male</option>
-                  <option value="female">Female</option>
-                </select>
-                <label for="floatingSelectGrid">Select Gender</label>
-              </div>
-            </div>
-            <div class="col-12 mx-auto">
-              <div class="form-floating">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="father-name"
-                  placeholder="Father's name"
-                />
-                <label for="father-name">Father's name</label>
-              </div>
-            </div>
-            <div class="col-12 mx-auto">
-              <div class="form-floating">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="mother-name"
-                  placeholder="Mother's name"
-                />
-                <label for="mother-name">Mother's name</label>
-              </div>
-            </div>
-            <div class="col-12 mx-auto">
-              <div class="form-floating">
-                <textarea
-                  class="form-control"
-                  placeholder="Leave a comment here"
-                  id="address"
-                  style="height: 100px"
-                  maxlength="100"
-                ></textarea>
-                <label for="floatingTextarea2">Address</label>
-              </div>
-            </div>
-            <div class="col-12 mx-auto">
-              <div class="form-floating">
-                <input
-                  type="number"
-                  class="form-control"
-                  id="phone"
-                  placeholder="Contact Number"
-                />
-                <label for="phone">Contact Number</label>
-              </div>
-            </div>
-            <div class="col-12 mx-auto">
-              <div class="form-floating">
-                <input
-                  type="number"
-                  class="form-control"
-                  id="aadhar"
-                  placeholder="Aadhar Number"
-                />
-                <label for="aadhar">Aadhar Number</label>
-              </div>
-            </div>
-            <div class="col-12 mx-auto">
-              <div class="form-floating">
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  placeholder="Email"
-                />
-                <label for="email">Email ID</label>
-              </div>
-            </div>
-
-            <div class="col-12 mb-4 mx-auto">
-              <div class="form-floating">
-                <select
-                  class="form-select"
-                  id="position"
-                  aria-label="Floating label select example"
-                >
-                  <option selected value="Member">Member</option>
-                  <option value="President">President</option>
-                  <option value="Vice-President">Vice-President</option>
-                </select>
-                <label for="floatingSelectGrid">Select Position</label>
-              </div>
-            </div>
-
-            <div class="col-12 mt-auto d-grid mb-4">
-              <button
-                class="btn btn-success"
-                data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop"
-              >
-                Submit
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
+            </form>
+        </div>
     </section>
     <!-- Button trigger modal -->
 
     <!-- Modal -->
-    <div
-      class="modal fade"
-      id="staticBackdrop"
-      tabindex="-1"
-      aria-labelledby="staticBackdropLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-body position-relative">
-            <div class="row pdf-btn align-items-center">
-              <div class="col-12">
-                <div class="success-animation">
-                  <svg
-                    class="checkmark"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 52 52"
-                  >
-                    <circle
-                      class="checkmark__circle"
-                      cx="26"
-                      cy="26"
-                      r="25"
-                      fill="none"
-                    />
-                    <path
-                      class="checkmark__check"
-                      fill="none"
-                      d="M14.1 27.2l7.1 7.2 16.7-16.8"
-                    />
-                  </svg>
+    <div class="modal fade" id="staticBackdrop" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-body position-relative">
+                    <div class="row pdf-btn align-items-center">
+                        <div class="col-12">
+                            <div class="success-animation">
+                                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                                    <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <h6 class="text-center text-color">Successfully submitted click generate to download pdf
+                            </h6>
+                        </div>
+                        <div class="col-12 mt-5 ">
+                            <button type="button" class="btn btn-primary gpdf w-100" onclick="GeneratePdf();"
+                                value="GeneratePdf">Generate PDF</button>
+
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="col-12">
-                <h6 class="text-center text-color">
-                  Successfully submitted click generate to download pdf
-                </h6>
-              </div>
-              <div class="col-12 mt-5">
-                <button
-                  type="button"
-                  class="btn btn-primary gpdf w-100"
-                  onclick="GeneratePdf();"
-                  value="GeneratePdf"
-                >
-                  Generate PDF
-                </button>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
 
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
-    <script src="database_conn.js"></script>
     <script src="script.js"></script>
 
-    <script src="bootstrap.bundle.min.js"></script>
-  </body>
+    <script src="bootstrap.bundle.min.js">
+    </script>
+</body>
+
 </html>
